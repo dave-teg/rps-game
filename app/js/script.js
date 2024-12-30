@@ -48,12 +48,12 @@ const listenEnterKey = () => {
   );
   p1Img.forEach((img) => {
     img.addEventListener("keydown", (event) => {
-      if(event.key === "Enter") {
+      if (event.key === "Enter") {
         img.click();
       }
     });
   });
-}
+};
 
 const listenPlayerChoice = () => {
   const p1Img = document.querySelectorAll(
@@ -87,7 +87,7 @@ const computerAnimationSequence = (playerChoice) => {
     deleteP();
     gameFlow(playerChoice);
   }, (interval += 750));
-  setTimeout(() => displayPlayAgain(), interval += 750);
+  setTimeout(() => displayPlayAgain(), (interval += 750));
 };
 
 const computerAnimation = (id, index) => {
@@ -129,7 +129,6 @@ const gameFlow = (playerChoice) => {
   updateScore(winner);
   //update the scoreboard
   updateScoreboard();
-
 };
 
 //listen to the playAgain button
@@ -155,69 +154,72 @@ const determineWinner = (computer, player) => {
 const displayComputerChoice = (computerChoice) => {
   const parent = document.getElementById("cp-paper");
   createComputerImg(computerChoice, parent);
-}
+};
 
 const createComputerImg = (icon, parent) => {
   const cpImg = document.createElement("img");
-  cpImg.src = `/app/images/${icon}.png`
+  cpImg.src = `./images/${icon}.png`;
   cpImg.alt = `${icon}`;
   parent.appendChild(cpImg);
-}
+};
 
 const displayActionMessage = (player, computer, winner) => {
   const cpMsg = document.getElementById("computer-msg");
   const msg = buildActionMessage(player, computer, winner);
   cpMsg.textContent = `${msg}`;
-
-}
+};
 
 const buildActionMessage = (player, computer, winner) => {
-  if(winner === "Tie game") return "Tie game";
-  else if(winner === "computer"){
-    return `${properCase(computer)} ${getActionMsg(computer)} ${properCase(player)}`
+  if (winner === "Tie game") return "Tie game";
+  else if (winner === "computer") {
+    return `${properCase(computer)} ${getActionMsg(computer)} ${properCase(
+      player
+    )}`;
   } else {
-    return `${properCase(player)} ${getActionMsg(player)} ${properCase(computer)}`
+    return `${properCase(player)} ${getActionMsg(player)} ${properCase(
+      computer
+    )}`;
   }
-}
+};
 
 const getActionMsg = (winner) => {
-    const winnerMsg = winner === "paper" ? "wraps" : winner === "rock" ? "smashes" : "cuts";
-    return properCase(winnerMsg);
-}
+  const winnerMsg =
+    winner === "paper" ? "wraps" : winner === "rock" ? "smashes" : "cuts";
+  return properCase(winnerMsg);
+};
 
 const displayWinner = (winner) => {
-  if(winner === "Tie game") return;
+  if (winner === "Tie game") return;
   const msg = createWinnerMsg(winner);
   const p1msg = document.getElementById("player-msg");
   p1msg.textContent = `${msg}`;
-}
+};
 
 const createWinnerMsg = (winner) => {
-  if(winner === "computer") {
-    return "🤖Computer Wins!🤖"
-  } else return "🔥🏆You Win!!🏆🔥"
-}
+  if (winner === "computer") {
+    return "🤖Computer Wins!🤖";
+  } else return "🔥🏆You Win!!🏆🔥";
+};
 
 const updateScore = (winner) => {
-  if(winner === "Tie game") return;
+  if (winner === "Tie game") return;
   winner === "computer" ? game.cpWin() : game.p1win();
   setStorage(winner);
-}
+};
 
 const setStorage = (winner) => {
-  if(winner === "computer") {
+  if (winner === "computer") {
     localStorage.setItem("CPAllTime", game.getCPAllTime());
   } else {
     localStorage.setItem("P1AllTime", game.getP1AllTime());
   }
-}
+};
 
 const displayPlayAgain = () => {
   const btn = document.querySelector(".playAgain");
   btn.classList.toggle("hidden");
   btn.focus();
-}
-
+};
 
 const updateP1msg = (playerChoice) => {
   let p1msg = document.getElementById("player-msg").textContent;
@@ -238,8 +240,7 @@ const listenPlayAgain = () => {
     game.endGame();
     resetGame();
   });
-  
-}
+};
 
 const resetGame = () => {
   const cp_rock = document.getElementById("cp-rock");
@@ -251,7 +252,9 @@ const resetGame = () => {
   createComputerImg("paper", cp_paper);
   createComputerImg("scissors", cp_scissors);
 
-  const squares = document.querySelectorAll(".player-board .gameBoard__wrapper div");
+  const squares = document.querySelectorAll(
+    ".player-board .gameBoard__wrapper div"
+  );
   squares.forEach((square) => {
     square.className = "gameBoard__square";
   });
@@ -264,4 +267,4 @@ const resetGame = () => {
 
   const btn = document.querySelector(".playAgain");
   btn.classList.toggle("hidden");
-}
+};
