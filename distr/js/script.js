@@ -159,7 +159,7 @@ const displayComputerChoice = (computerChoice) => {
 
 const createComputerImg = (icon, parent) => {
   const cpImg = document.createElement("img");
-  cpImg.src = `/dist/images/${icon}.png`
+  cpImg.src = `/distr/images/${icon}.png`
   cpImg.alt = `${icon}`;
   parent.appendChild(cpImg);
 }
