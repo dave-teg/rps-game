@@ -1,0 +1,23 @@
+@mixin mq($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin mqBtn($size1, $size2){
+  @media screen and (min-width: $size1) and (max-width: $size2){
+    @content;
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexSB {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

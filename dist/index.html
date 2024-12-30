@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <script type="module" src="js/script.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1 class="center" tabindex="0">Rock Paper Scissors</h1>
+      <section class="scoreboard-wrapper">
+        <section id="all_time_scoreboard" class="scoreboard">
+          <div
+            tabindex="0"
+            class="scoreboard__header"
+            aria-label="Scoreboard displaying all time wins."
+          >
+            <p aria-hidden="true"><abbr title="Player One">P1</abbr></p>
+            <p aria-hidden="true">All Time</p>
+            <p aria-hidden="true"><abbr title="Player One">CP</abbr></p>
+          </div>
+          <div class="scoreboard__body flex">
+            <p
+              id="P1_all_time"
+              class="score"
+              
+            >
+              0
+            </p>
+            <p
+              id="CP_all_time"
+              class="score"
+              
+            >
+              0
+            </p>
+          </div>
+        </section>
+        <section id="session_scoreboard" class="scoreboard">
+          <div
+            class="scoreboard__header"
+            aria-label="Scoreboard displaying wins this session"
+          >
+            <p aria-hidden="true"><abbr title="Player One">P1</abbr></p>
+            <p aria-hidden="true">Session</p>
+            <p aria-hidden="true"><abbr title="Player One">CP</abbr></p>
+          </div>
+          <div class="scoreboard__body flex">
+            <p
+              id="P1_session"
+              
+              class="score"
+            >
+              0
+            </p>
+            <p
+              id="CP_session"
+             
+              class="score"
+            >
+              0
+            </p>
+          </div>
+        </section>
+      </section>
+      <section id="player-board" class="player-board gameBoard">
+        <h2 tabindex="0" id="player-msg" class="gameBoard__msg center">
+          Player One Chooses...
+        </h2>
+        <div class="gameBoard__wrapper flex">
+          <div id="rock" class="gameBoard__square"  >
+            <img src="images/rock.png" alt="select rock" tabindex="0"/>
+          </div>
+          <div id="paper" class="gameBoard__square" >
+            <img src="images/paper.png" alt="select paper" tabindex="0"/>
+          </div>
+          <div id="scissors" class="gameBoard__square" >
+            <img src="images/scissors.png" alt="select scissors" tabindex="0" />
+          </div>
+        </div>
+      </section>
+      <section id="computer-board" class="computer-board gameBoard">
+        <h2 tabindex="0" id="computer-msg" class="gameBoard__msg center">
+          Computer Chooses...
+        </h2>
+        <div class="gameBoard__wrapper flex">
+          <div id="cp-rock" class="gameBoard__square">
+            <img src="images/rock.png" alt="rock" />
+          </div>
+          <div id="cp-paper" class="gameBoard__square">
+            <img src="images/paper.png" alt="paper" />
+          </div>
+          <div id="cp-scissors"  class="gameBoard__square">
+            <img src="images/scissors.png" alt="scissors" />
+          </div>
+        </div>
+      </section>
+      <form>
+        <button class="playAgain hidden" type="submit">Play Again?</button>
+      </form>
+    </main>
+  </body>
+</html>

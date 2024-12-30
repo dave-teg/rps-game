@@ -1,0 +1,51 @@
+.gameBoard{
+  &__wrapper {
+    width: calc(100% - 20px);
+    margin-left: 20px;
+    max-height: 180px;
+  }
+
+  &__square {
+    @include flexCenter;
+    width: 33.33%;
+    cursor: pointer;
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      transition: 0.5s;
+      @include mqBtn(500px, 800px){
+        height: 80%;
+      }
+    }
+
+    img:hover,
+    img:focus {
+      transform: scale(1.05);
+      filter: brightness(120%);
+    }
+
+    p {
+      font-size: 7rem;
+    }
+  }
+
+  .selected {
+    margin: 0 auto;
+    transition: margin 0.4s ease-in;
+  }
+
+  .notSelected {
+    width: 0;
+    visibility: hidden;
+    transition: width 0.5s ease-in, visibility 0.5s ease-in;
+  }
+
+  .fadeOut {
+    animation: fadeOut 0.5s ease-in forwards;
+  }
+
+  .margin {
+    margin: 0 auto;
+  }
+}

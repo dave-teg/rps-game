@@ -1,0 +1,15 @@
+.playAgain {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  padding: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  color: $bg-color;
+  text-align: center;
+  background-color: $text-color;
+  opacity: 0.8;
+}
